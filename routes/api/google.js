@@ -5,5 +5,8 @@ const googleController = require("../../controllers/googleController");
 router.route("/")
   .get(googleController.findAll)
 
+router.route("/:id")
+  .post(googleController.create);
+
 
 module.exports = router;

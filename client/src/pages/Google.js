@@ -33,15 +33,16 @@ class App extends Component {
 
     // event.preventDefault();
     if (this.state.title && this.state.author) {
-      API.saveBook(id)  ({
+      API.saveBook(id)({
         title: this.state.title,
         authors: this.state.authors,
         description: this.state.description,
         link: this.state.link,
-        rating: this.state.rating, 
+        rating: this.state.rating,
         thumbnail: this.state.thumbnail
       })
         .then(res => this.loadBooks())
+        ("button works")
         .catch(err => console.log(err));
     }
   };
@@ -98,9 +99,10 @@ class App extends Component {
                               rating={book.volumeInfo.averageRating}
                               thumbnail={book.volumeInfo.imageLinks.thumbnail}
                             />
+
                           </Col>
                           <Col size="xs-4 sm-2">
-                            <Button
+                          <Button
                               onClick={() => this.saveBook(book._id)}
                               type="secondary"
                               className="input-sm"
